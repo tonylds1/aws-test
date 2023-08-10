@@ -53,6 +53,35 @@
     background-color: #0056b3;
   }
 </style>
+<script>
+  // callAPI function that takes the base and exponent numbers as parameters
+  var callAPI = (nome, documento, numero, telefone, unidade)=>{
+      // instantiate a headers object
+      var myHeaders = new Headers();
+      // add content type header to object
+      myHeaders.append("Content-Type", "application/json");
+      // using built in JSON utility package turn object to string and store in a variable
+      var raw = JSON.stringify({
+        "nome":nome,
+        "documento":documento,
+        "numero":numero,
+        "telefone":telefone,
+        "unidade":unidade
+      });
+      // create a JSON object with parameters for API call and store in a variable
+      var requestOptions = {
+          method: 'POST',
+          headers: myHeaders,
+          body: raw,
+          redirect: 'follow'
+      };
+      // make API call with parameters and use promises to get response
+      fetch("https://kg72p57ja7.execute-api.us-east-1.amazonaws.com/dev", requestOptions)
+      .then(response => response.text())
+      .then(result => alert(JSON.parse(result).body))
+      .catch(error => console.log('error', error));
+  }
+</script>
 </head>
 <body>
   <div class="form-container">
@@ -81,7 +110,14 @@
         <label for="unidade">Unidade</label>
         <input type="text" id="unidade" name="unidade" required>
       </div>
-      <button type="submit">Enviar</button>
+      <button type="button" onclick="callAPI(
+        document.getElementById('nome').value,
+        document.getElementById('documento').value,
+        document.getElementById('numero').value,
+        document.getElementById('telefone').value,
+        document.getElementById('unidade').value
+      )"
+      >CALCULATE</button>
     </form>
   </div>
 </body>
