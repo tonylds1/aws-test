@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulário Claro</title>
+<style>
+  body {
+    background-color: #1e1e1e;
+    color: #333333;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .form-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 350px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  input, select {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  button {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+</style>
+</head>
+<body>
+  <div class="form-container">
+    <form>
+      <div class="form-group">
+        <label for="nome">Nome Completo</label>
+        <input type="text" id="nome" name="nome" required>
+      </div>
+      <div class="form-group">
+        <label for="documento">Documento de Identificação</label>
+        <select id="documento" name="documento" required>
+          <option value="" disabled selected>Selecione o Documento</option>
+          <option value="cnh">CNH</option>
+          <option value="rg">RG</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="numero">Número de Identificação</label>
+        <input type="text" id="numero" name="numero" required>
+      </div>
+      <div class="form-group">
+        <label for="telefone">Telefone de Contato</label>
+        <input type="tel" id="telefone" name="telefone" required>
+      </div>
+      <div class="form-group">
+        <label for="unidade">Unidade de Origem</label>
+        <input type="text" id="unidade" name="unidade" required>
+      </div>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+</body>
+</html>
